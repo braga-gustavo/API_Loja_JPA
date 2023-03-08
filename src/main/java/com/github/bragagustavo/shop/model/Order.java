@@ -16,7 +16,8 @@ public class Order {
     private BigDecimal price = BigDecimal.ZERO;
     private LocalDate date = LocalDate.now();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) // (fetch = FetchType.LAZY) faz com que as queries realizem
+    // join apenas nas tabelas que sao utilizadas
     private Client client;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
@@ -26,13 +27,15 @@ public class Order {
         this.client = client;
     }
 
-    public void addItem(OrderItem item){
+    public void addItem(OrderItem item) {
         item.setOrder(this);
         this.itens.add(item);
         this.price = this.price.add(item.getPrice());
     }
 
-    public Order() {}
+    public Order(){
+
+    }
 
     public Long getId() {
         return id;
@@ -64,5 +67,13 @@ public class Order {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public List<OrderItem> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<OrderItem> itens) {
+        this.itens = itens;
     }
 }

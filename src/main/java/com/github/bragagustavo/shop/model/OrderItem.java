@@ -16,10 +16,10 @@ public class OrderItem {
     
     private int ammount;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
     public OrderItem(){
