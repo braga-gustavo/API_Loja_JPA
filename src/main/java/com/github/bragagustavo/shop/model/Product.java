@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "products")
+@Table(name = "product")
+@NamedQuery(name = "Product.findByCategoryName" ,  query = "SELECT p FROM Product p WHERE p.category.name = :name")
 public class Product {
 
     @Id

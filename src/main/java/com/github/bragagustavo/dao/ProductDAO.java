@@ -8,6 +8,7 @@ import java.util.List;
 
 public class ProductDAO {
 
+
     private EntityManager entityManager;
 
     public ProductDAO(EntityManager entityManager) {
@@ -34,9 +35,9 @@ public class ProductDAO {
                 .getResultList();
     }
 
+    /**Exemplo do uso de uma named query (nao utilizada no restante da aplicação) **/
     public List<Product> findByCategoryName(String name){
-        String jpql = "SELECT p FROM Product p WHERE p.category.name = :name";
-        return entityManager.createQuery(jpql, Product.class)
+        return entityManager.createNamedQuery("Product.findByCategoryName", Product.class)
                 .setParameter("name", name)
                 .getResultList();
     }
@@ -47,6 +48,5 @@ public class ProductDAO {
                 .setParameter("name", name)
                 .getSingleResult();
     }
-
 
 }

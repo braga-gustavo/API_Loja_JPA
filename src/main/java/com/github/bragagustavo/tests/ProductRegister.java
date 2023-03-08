@@ -1,3 +1,5 @@
+package com.github.bragagustavo.tests;
+
 import com.github.bragagustavo.dao.CategoryDAO;
 import com.github.bragagustavo.dao.ProductDAO;
 import com.github.bragagustavo.shop.model.Category;
@@ -29,8 +31,17 @@ public class ProductRegister {
 
     private static void productRegister() {
         Category informatics = new Category("INFORMATICS");
-        Product notebook = new Product("Macbook Pro 16","Caro demais",new BigDecimal("30000"),
-                informatics);
+        Category cellphone = new Category("PHONES");
+        Category laptops = new Category("LAPTOPS");
+
+        Product ps5 = new Product("Playstation 5","Videogame", new BigDecimal("5000"), informatics);
+
+        Product iphone = new Product("Iphone 13 Ultra X S ","High Performance",
+                new BigDecimal("70000"),
+                cellphone);
+
+        Product macbook = new Product("Macbook Pro 16","High Performance", new BigDecimal("30000"),
+                laptops);
 
         EntityManager entityManager = JPAUtil.getEntityManagerFactory();
         CategoryDAO categoryDAO = new CategoryDAO(entityManager);
@@ -39,7 +50,12 @@ public class ProductRegister {
         entityManager.getTransaction().begin(); // Dispara a transação para fazer o insert no banco
 
         categoryDAO.register(informatics);
-        productDAO.register(notebook);
+        categoryDAO.register(cellphone);
+        categoryDAO.register(laptops);
+
+        productDAO.register(ps5);
+        productDAO.register(iphone);
+        productDAO.register(macbook);
 
         entityManager.getTransaction().commit();
         entityManager.close();
