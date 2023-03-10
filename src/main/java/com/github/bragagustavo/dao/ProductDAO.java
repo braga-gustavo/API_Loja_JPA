@@ -87,7 +87,7 @@ public class ProductDAO {
         return query.getResultList();
     }
 
-    public List<Product> findParameterByCriteria(String name, BigDecimal price, LocalDate registerDate){
+    public List<Product> findByParameterWithCriteria(String name, BigDecimal price, LocalDate registerDate){
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Product> query = builder.createQuery(Product.class);
         Root<Product> from = query.from(Product.class);
@@ -108,7 +108,4 @@ public class ProductDAO {
         query.where(filters);
         return  entityManager.createQuery(query).getResultList();
     }
-
-    //TODO: Testar o Criteria Query
-
-}
+ }

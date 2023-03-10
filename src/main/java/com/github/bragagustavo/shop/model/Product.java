@@ -7,6 +7,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "product")
 @NamedQuery(name = "Product.findByCategoryName" ,  query = "SELECT p FROM Product p WHERE p.category.name = :name")
+@Inheritance(strategy = InheritanceType.JOINED) // Cria tabelas para cada entidade, fazendo join com a superclasse
 public class Product {
 
     @Id

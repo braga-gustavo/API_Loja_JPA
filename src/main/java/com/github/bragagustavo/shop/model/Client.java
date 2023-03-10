@@ -10,16 +10,15 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-
-    private String CPF;
+   @Embedded // Sinaliza que a entidade foi embutida
+    private PersonalData personalData;
 
     public Client() {
     }
 
     public Client(String name, String cpf) {
+        this.personalData = new PersonalData(name, cpf);
     }
-
 
     public Long getId() {
         return id;
@@ -30,18 +29,10 @@ public class Client {
     }
 
     public String getName() {
-        return name;
+        return personalData.getName();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCPF() {
-        return CPF;
-    }
-
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public String getCpf() {
+        return this.personalData.getCpf();
     }
 }
