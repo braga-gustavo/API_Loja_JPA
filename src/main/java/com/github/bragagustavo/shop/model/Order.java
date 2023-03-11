@@ -27,14 +27,14 @@ public class Order {
         this.client = client;
     }
 
+    public Order() {
+
+    }
+
     public void addItem(OrderItem item) {
         item.setOrder(this);
         this.itens.add(item);
         this.price = this.price.add(item.getPrice());
-    }
-
-    public Order(){
-
     }
 
     public Long getId() {

@@ -7,7 +7,6 @@ import com.github.bragagustavo.dao.ProductDAO;
 import com.github.bragagustavo.shop.model.*;
 import com.github.bragagustavo.util.JPAUtil;
 import com.github.bragagustavo.vo.SellReportVo;
-
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.util.List;
@@ -17,7 +16,7 @@ public class OrderRegister {
     public static void main(String[] args) {
 
         dbPopulate();
-        EntityManager entityManager = JPAUtil.getEntityManagerFactory();
+        EntityManager entityManager = JPAUtil.getEntityManager();
         ProductDAO productDAO = new ProductDAO(entityManager);
         ClientDAO clientDAO = new ClientDAO(entityManager);
 
@@ -68,7 +67,7 @@ public class OrderRegister {
         Client client = new Client("Page", "17923");
         Client client2 = new Client("Hendrix", "69696969");
 
-        EntityManager entityManager = JPAUtil.getEntityManagerFactory();
+        EntityManager entityManager = JPAUtil.getEntityManager();
         CategoryDAO categoryDAO = new CategoryDAO(entityManager);
         ProductDAO productDAO = new ProductDAO(entityManager);
         ClientDAO clientDAO = new ClientDAO(entityManager);

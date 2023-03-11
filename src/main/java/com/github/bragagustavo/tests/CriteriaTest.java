@@ -16,15 +16,16 @@ import com.github.bragagustavo.util.JPAUtil;
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 
-public class CriteriaTest {    public static void main(String[] args) {
+public class CriteriaTest {
+    public static void main(String[] args) {
         dbPopulate();
-        EntityManager entityManager = JPAUtil.getEntityManagerFactory();
+        EntityManager entityManager = JPAUtil.getEntityManager();
         ProductDAO productDAO = new ProductDAO(entityManager);
         productDAO.findByParameterWithCriteria("Playstation 5", null, null);
 
     }
 
-        private static void dbPopulate() {
+    private static void dbPopulate() {
         Category informatics = new Category("INFORMATICS");
         Category cellphone = new Category("CELLPHONE");
         Category laptop = new Category("LAPTOP");
@@ -35,7 +36,7 @@ public class CriteriaTest {    public static void main(String[] args) {
         Product macbook = new Product("Macbook Pro 16", "High Performance", new BigDecimal("30000"),
                 informatics);
 
-        EntityManager entityManager = JPAUtil.getEntityManagerFactory();
+        EntityManager entityManager = JPAUtil.getEntityManager();
 
         ProductDAO productDAO = new ProductDAO(entityManager);
         ClientDAO clientDAO = new ClientDAO(entityManager);

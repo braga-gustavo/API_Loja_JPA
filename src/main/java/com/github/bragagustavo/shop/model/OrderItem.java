@@ -13,7 +13,7 @@ public class OrderItem {
 
     @Column(name = "unity_price")
     private BigDecimal unityPrice;
-    
+
     private int ammount;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -22,7 +22,7 @@ public class OrderItem {
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
-    public OrderItem(){
+    public OrderItem() {
 
     }
 
@@ -74,6 +74,6 @@ public class OrderItem {
     }
 
     public BigDecimal getPrice() {
-        return  unityPrice.multiply(new BigDecimal(ammount));
+        return unityPrice.multiply(new BigDecimal(ammount));
     }
 }

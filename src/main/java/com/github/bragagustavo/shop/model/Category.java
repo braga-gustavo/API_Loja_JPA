@@ -1,28 +1,26 @@
 package com.github.bragagustavo.shop.model;
 
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "categories")
 public class Category {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+    @EmbeddedId
+    private CategoryID id;
 
     public Category(String name) {
-        this.name = name;
+        this.id = new CategoryID(name, "xpto");
+
     }
 
     public Category() {
     }
 
     public String getName() {
-        return name;
+        return this.id.getName();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }

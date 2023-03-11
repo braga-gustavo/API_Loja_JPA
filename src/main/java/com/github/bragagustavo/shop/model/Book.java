@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "books")
-public class Book extends  Product {
+public class Book extends Product {
 
     private String author;
     private Integer numberOfPages;

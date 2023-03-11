@@ -25,7 +25,7 @@ public class OrderDAO {
                 .getSingleResult();
     }
 
-    public List<SellReportVo> sellReport(){
+    public List<SellReportVo> sellReport() {
         String jpql = "SELECT new com.github.bragagustavo.vo.SellReportVo("
                 + " product.name, "
                 + "SUM (item.ammount), "
@@ -41,7 +41,7 @@ public class OrderDAO {
 
     }
 
-    public Order findOrderWithClient(Long id){
+    public Order findOrderWithClient(Long id) {
         return entityManager.createQuery("SELECT o FROM Order o JOIN FETCH  o.client WHERE o.id = :id", Order.class)
                 .setParameter("id", id)
                 .getSingleResult();

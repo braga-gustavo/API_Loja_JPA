@@ -10,7 +10,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-   @Embedded // Sinaliza que a entidade foi embutida
+    @Embedded // Sinaliza que a entidade foi embutida
     private PersonalData personalData;
 
     public Client() {

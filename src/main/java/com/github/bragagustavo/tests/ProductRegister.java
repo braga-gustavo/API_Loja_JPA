@@ -13,15 +13,15 @@ import java.util.List;
 public class ProductRegister {
     public static void main(String[] args) {
         productRegister();
-        Long id  = 1L;
-        EntityManager entityManager = JPAUtil.getEntityManagerFactory();
+        Long id = 1L;
+        EntityManager entityManager = JPAUtil.getEntityManager();
         ProductDAO productDAO = new ProductDAO(entityManager);
 
         Product product = productDAO.findById(1L);
         System.out.println(product.getPrice());
 
         List<Product> all = productDAO.findAll();
-        all.forEach( product1 -> System.out.println(product1.getName()));
+        all.forEach(product1 -> System.out.println(product1.getName()));
 
         List<Product> todos = productDAO.findByCategoryName("INFORMATICS");
 
@@ -34,16 +34,16 @@ public class ProductRegister {
         Category cellphone = new Category("PHONES");
         Category laptops = new Category("LAPTOPS");
 
-        Product ps5 = new Product("Playstation 5","Videogame", new BigDecimal("5000"), informatics);
+        Product ps5 = new Product("Playstation 5", "Videogame", new BigDecimal("5000"), informatics);
 
-        Product iphone = new Product("Iphone 13 Ultra X S ","High Performance",
+        Product iphone = new Product("Iphone 13 Ultra X S ", "High Performance",
                 new BigDecimal("70000"),
                 cellphone);
 
-        Product macbook = new Product("Macbook Pro 16","High Performance", new BigDecimal("30000"),
+        Product macbook = new Product("Macbook Pro 16", "High Performance", new BigDecimal("30000"),
                 laptops);
 
-        EntityManager entityManager = JPAUtil.getEntityManagerFactory();
+        EntityManager entityManager = JPAUtil.getEntityManager();
         CategoryDAO categoryDAO = new CategoryDAO(entityManager);
         ProductDAO productDAO = new ProductDAO(entityManager);
 

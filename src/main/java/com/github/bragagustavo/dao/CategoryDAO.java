@@ -1,6 +1,7 @@
 package com.github.bragagustavo.dao;
 
 import com.github.bragagustavo.shop.model.Category;
+
 import javax.persistence.EntityManager;
 
 public class CategoryDAO {
@@ -17,11 +18,11 @@ public class CategoryDAO {
         this.entityManager.persist(category);
     }
 
-    public void update(Category category){
+    public void update(Category category) {
         this.entityManager.merge(category);
     }
 
-    public void remove(Category category){
+    public void remove(Category category) {
         category = entityManager.merge(category);
         this.entityManager.remove(category);
     }

@@ -12,12 +12,12 @@ public class ClientDAO {
         this.entityManager = entityManager;
     }
 
-    public void register(Client client){
+    public void register(Client client) {
         this.entityManager.persist(client);
     }
 
-    public Client findById(Long id){
+    public Client findById(Long id) {
         return entityManager.find(Client.class, id);
     }
 
- }
+}

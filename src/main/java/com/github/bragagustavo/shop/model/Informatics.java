@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "informatics")
-public class Informatics extends  Product {
+public class Informatics extends Product {
 
     private String brand;
     private Integer model;

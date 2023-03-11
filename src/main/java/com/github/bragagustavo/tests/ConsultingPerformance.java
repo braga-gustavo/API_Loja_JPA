@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 public class ConsultingPerformance {
     public static void main(String[] args) {
         dbPopulate();
-        EntityManager entityManager = JPAUtil.getEntityManagerFactory();
+        EntityManager entityManager = JPAUtil.getEntityManager();
 
 //        Order order = entityManager.find(Order.class, 2L);
 //        System.out.println(order.getItens().size());
@@ -46,7 +46,7 @@ public class ConsultingPerformance {
         Client client = new Client("Page", "17923");
         Client client2 = new Client("Hendrix", "69696969");
 
-        EntityManager entityManager = JPAUtil.getEntityManagerFactory();
+        EntityManager entityManager = JPAUtil.getEntityManager();
 
         ProductDAO productDAO = new ProductDAO(entityManager);
         ClientDAO clientDAO = new ClientDAO(entityManager);
